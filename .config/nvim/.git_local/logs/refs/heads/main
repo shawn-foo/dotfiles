@@ -1,0 +1,2 @@
+0000000000000000000000000000000000000000 b5234935982a1a01be71fac4b3c171a2f4ecffe1 shawn-foo <foojw.shawn@gmail.com> 1722931376 +0800	clone: from https://github.com/cpow/neovim-for-newbs.git
+b5234935982a1a01be71fac4b3c171a2f4ecffe1 221ecaba7377f4b9c5ffcfc027be1c68aff89286 shawn-foo <foojw.shawn@gmail.com> 1722959610 +0800	commit: set up fs development plugins without lazyvim
