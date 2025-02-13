@@ -1,4 +1,3 @@
-
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
@@ -8,6 +7,17 @@ vim.g.background = "light"
 vim.o.signcolumn = "yes"
 
 vim.opt.swapfile = false
+
+-- i love cp
+vim.keymap.set("n", "<leader>r", function()
+  vim.cmd(":2T run")
+end)
+vim.keymap.set("n", "<leader>b", function()
+  vim.cmd(":1T build")
+end)
+
+-- i love infocomm
+vim.keymap.set("n", "<leader>py", ":1T python " .. vim.api.nvim_buf_get_name(0))
 
 -- Navigate vim panes better
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
@@ -57,4 +67,8 @@ vim.opt.mouse = ""
 vim.opt.formatoptions:append({ "r" })
 vim.keymap.set("n", "dj", function()
   vim.diagnostic.goto_next()
+end, opts)
+
+vim.keymap.set("n", "di", function()
+  vim.diagnostic.open_float()
 end, opts)

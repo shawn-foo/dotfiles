@@ -19,7 +19,7 @@ return {
       local navbuddy = require("nvim-navbuddy")
       local lspconfig = require("lspconfig")
       lspconfig.rust_analyzer.setup({})
-      local servers = { "pyright", "tsserver", "clangd", "lua_ls", "tailwindcss", "prismals" }
+      local servers = { "pyright", "ts_ls", "clangd", "lua_ls", "tailwindcss", "prismals" , "cssls", "html"}
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       for _, lsp in ipairs(servers) do

@@ -7,6 +7,7 @@ then
 fi
 
 PATH="$HOME/.cargo/bin:$PATH"
+PATH="$HOME/.tmuxifier/bin:$PATH"
 
 # set the directary for zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -72,12 +73,47 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 
-# aliases
 # for completion with color
 alias ls='ls --color'
+# aliases
 alias nvim='nvim'
 alias c='clear'
+alias cat="bat"
+alias eza="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
+alias build=~/build.sh
+alias run=~/run.sh
+alias cp=~/cp.sh
+alias skibidi="tmuxifier load-session skibidi"
+alias rustycrab="tmuxifier load-session game"
+alias greed="python /home/foojw/Documents/shawn/apps/greed/greed.py"
+alias gay="npx supabase gen types --lang=typescript --local > database.types.ts"
+alias die="tmux kill-server"
+alias testtest="echo '$1'"
 
 # shell intergrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+eval $(thefuck --alias)
+eval "$(tmuxifier init -)"
+
+setxkbmap -option 'caps:escape_shifted_capslock'
+
+
+# Path to your scripts folder
+SCRIPTS_DIR="$HOME/scripts"
+
+# Ensure the scripts folder exists
+if [[ -d "$SCRIPTS_DIR" ]]; then
+  for script in "$SCRIPTS_DIR"/*; do
+    # Check if it's a file and executable
+    if [[ -f "$script" && -x "$script" ]]; then
+      # Extract the filename without the extension
+      alias_name=$(basename "$script" | sed 's/\.[^.]*$//')
+      # Create an alias for the script
+      alias "$alias_name"="$script"
+    fi
+  done
+fi
+
+# Created by `pipx` on 2025-01-17 07:12:39
+export PATH="$PATH:/home/foojw/.local/bin"
